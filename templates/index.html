@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Deployment Diagram Generator</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+    
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+    
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    
+        form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+    
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: monospace;
+        }
+    </style>
+
+    <h1>Deployment Diagram Generator</h1>
+    <form action="/generate" method="post">
+        <label for="user">User:</label>
+        <input type="text" id="user" name="user"><br><br>
+
+        <label for="web_server">Web Server:</label>
+        <input type="text" id="web_server" name="web_server"><br><br>
+
+        <label for="web_app">Web App:</label>
+        <input type="text" id="web_app" name="web_app"><br><br>
+
+        <label for="mysql">MySQL:</label>
+        <input type="text" id="mysql" name="mysql"><br><br>
+
+        <label for="app_server">App Server:</label>
+        <input type="text" id="app_server" name="app_server"><br><br>
+
+        <label for="app">App:</label>
+        <input type="text" id="app" name="app"><br><br>
+
+        <label for="internet">Internet:</label>
+        <input type="text" id="internet" name="internet"><br><br>
+
+        <input type="submit" value="Generate PlantUML Code">
+    </form>
+
+    {% if plantuml_code %}
+    <h2>Generated PlantUML Code:</h2>
+    <pre>{{ plantuml_code }}</pre>
+    {% endif %}
+</body>
+
+</html>
